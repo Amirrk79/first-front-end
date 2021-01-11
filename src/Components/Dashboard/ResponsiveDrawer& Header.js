@@ -28,9 +28,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import history from '../history';
-import store from '../../Redux/store';
-import setActiveUser from '../../Redux/Actions/setActiveUserAction';
-import { connect } from "react-redux";
+import stylesLess from './stylesLess.less';
 
 const drawerWidth = 240;
 

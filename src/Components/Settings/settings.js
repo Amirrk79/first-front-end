@@ -3,25 +3,16 @@ import { withRouter , useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import EditUser from '../../Redux/Actions/editUser';
 import setActiveUser from '../../Redux/Actions/setActiveUserAction';
-import EditIcon from '@material-ui/icons/Edit';
-import SaveIcon from '@material-ui/icons/Save';
-import SettingsIcon from '@material-ui/icons/Settings';
 import ResponsiveDrawer from '../Dashboard/ResponsiveDrawer& Header';
 import store from '../../Redux/store';
 import Alert from '../Notifiaction';
+import styles from './styles.less';
 import {
     Grid,
-    Typography,
-    Avatar,
     Button,
-    CssBaseline,
     TextField,
-    Box,
-    Container,
     Snackbar,
     makeStyles,
-    AppBar,
-    Toolbar
     } from "@material-ui/core";
 import Empty from '../Dashboard/emptyDashboard';
 
@@ -56,6 +47,18 @@ import Empty from '../Dashboard/emptyDashboard';
             width: '10px' ,
             height: '30px'
         } ,
+        greenbtn : {
+            backgroundColor: '#7CFC00' ,
+            '&:hover': {
+                backgroundColor: '#32CD32'
+            }
+        } ,
+        redbtn : {
+            backgroundColor: '#ff2d44' ,
+            '&:hover': {
+                backgroundColor: '#FF0000'
+            }
+        }
       }));
 
 function Settings() {
@@ -98,7 +101,6 @@ function Settings() {
         }
     );
     const classes = useStyles();
-    const history = useHistory();
     function updateComponent() {
         const state = store.getState();
         const user = state.user;
@@ -199,13 +201,12 @@ function Settings() {
                     <Grid item xs='12' sm='6'>
                         <div 
                         style={{
-                            backgroundColor: '#fff',
                             alignItems: 'center' ,
                             textAlign: 'center' ,
                             borderRadius: '5px'
                         }}
                         >
-                            <Typography>
+                            <p className={styles.p}>
                                 UserName:<TextField 
                                 value={settingData.userName}
                                 name='userName'
@@ -213,19 +214,18 @@ function Settings() {
                                 helperText={settingData.userNameError}
                                 error={errorOpen.userNameOpen}
                                 />
-                            </Typography>
+                            </p>
                         </div>
                     </Grid>
                     <Grid item xs='12' sm='6'>
                         <div
                         style={{
-                            backgroundColor: '#fff',
                             alignItems: 'center' ,
                             textAlign: 'center' ,
                             borderRadius: '5px'
                         }}
                         >
-                            <Typography>
+                            <p className={styles.p}>
                                 Password:<TextField  
                                 value={settingData.password}
                                 name='password'
@@ -233,7 +233,7 @@ function Settings() {
                                 helperText={settingData.passwordError}
                                 error={errorOpen.passwordOpen}
                                 />
-                            </Typography>
+                            </p>
                         </div>
                     </Grid>
                     <Grid item xs='12' sm='12'>
@@ -245,11 +245,13 @@ function Settings() {
                         >
                             <Button
                             onClick={handleDiscardChanges}
+                            className={classes.redbtn}
                             >
                                 Discard
                             </Button>
                             <Button 
                             onClick={handleSaveChanges}
+                            className={classes.greenbtn}
                             >
                                 Apply
                             </Button>

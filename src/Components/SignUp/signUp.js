@@ -6,6 +6,7 @@ import shortid from 'short-id';
 import { dashboard } from '../routePaths'; 
 import store from '../../Redux/store';
 import setActiveUser from '../../Redux/Actions/setActiveUserAction';
+import styles from './styles.less';
 import {
     Grid,
     AppBar,

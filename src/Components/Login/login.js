@@ -8,6 +8,7 @@ import setActiveUser from '../../Redux/Actions/setActiveUserAction';
 import Alert from '../Notifiaction';
 import { dashboard } from '../routePaths';
 import store from '../../Redux/store';
+import styles from './styles.less'
 import {
     Grid,
     AppBar,

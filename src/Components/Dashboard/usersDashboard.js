@@ -1,17 +1,10 @@
 import React , { useEffect , useState } from 'react';
 import ResponsiveDrawer from './ResponsiveDrawer& Header';
-import Header from './Header';
 import Empty from './emptyDashboard';
 import store from '../../Redux/store';
-
-
-
-//Grid styles 
-
+import stylesLess from './stylesLess.less';
 import { makeStyles } from '@material-ui/core/styles';
-import {Paper , Box} from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { TextField } from 'material-ui';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,7 +40,7 @@ function UserDashboard() {
             <Empty>
             <Grid container spacing={3}>
                 <Grid item xs='12' sm='12'>
-                  <h1>Wellcome {user.userName}</h1>
+                  <h2>Wellcome {user.userName}</h2>
                   <Grid item xs='12' sm='3'>  
                 </Grid>
                 </Grid>
